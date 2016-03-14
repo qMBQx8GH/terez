@@ -16,21 +16,6 @@ MainMenuScene::MainMenuScene(Resources* res)
 	office->setScaleY(_view->getHeight() / office->getHeight());
 	office->attachTo(_view);
 
-    /*
-    'initActor' is syntax sugar for
-
-    spSprite logo = new Sprite;
-    logo->setResAnim(res::ui.getResAnim("logo2")),
-    logo->attachTo(_view);
-    */
-
-    //create logo
-    //spSprite logo = initActor(new Sprite,
-    //                          arg_resAnim = res.getResAnim("logo2"),
-    //                          arg_attachTo = _view);
-    //logo->setPosition(_view->getSize() - logo->getSize());
-
-
 	spSprite btn = 0;
 	
     //create play button at center
