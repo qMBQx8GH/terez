@@ -1,0 +1,7 @@
+regexp:\.obj$
+regexp:\.tlog$
+regexp:win32/Debug_v140_xp/
+regexp:\.pyc$
+regexp:\.suo$
+regexp:\.sdf$
+regexp:\.vcxproj(|\.user|\.filters|\.orig)$
