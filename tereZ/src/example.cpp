@@ -29,6 +29,8 @@ void example_init()
 	//load xml file with resources definition
     gameResources.loadXML("xmls/ui.xml");
 
+	splayer.play(gameResources.get("background"), PlayOptions().loop());
+
 	MainMenuScene::instance = new MainMenuScene(&gameResources);
 	getStage()->addChild(MainMenuScene::instance->getView());
 }
@@ -37,6 +39,8 @@ void example_init()
 //called each frame from main.cpp
 void example_update()
 {
+	SoundSystem::instance->update();
+	splayer.update();
 }
 
 //called each frame from main.cpp
