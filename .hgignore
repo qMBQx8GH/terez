@@ -1,6 +1,7 @@
 regexp:\.obj$
 regexp:\.tlog$
-regexp:win32/Debug_v140_xp/
+regexp:\.win32/Debug_v140_xp/
+regexp:\.cmake/build/
 regexp:\.pyc$
 regexp:\.suo$
 regexp:\.sdf$
