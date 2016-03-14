@@ -5,4 +5,3 @@ regexp:\.cmake/build/
 regexp:\.pyc$
 regexp:\.suo$
 regexp:\.sdf$
-regexp:\.vcxproj(|\.user|\.filters|\.orig)$
