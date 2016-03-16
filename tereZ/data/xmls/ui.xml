@@ -1,29 +1,14 @@
 <?xml version="1.0"?>
 <resources>
-	<set path = "images/ui" />
-	<atlas>
-		<image file="joystick.png" />
-		<image file="finger.png" />
-		<image file="play.png" />
-		<image file="logo2.png" />
-		<image file="menu.png" />
-		<image file="bg.jpg" />
-	</atlas>
-
 	<set path = "images" />
 	<atlas>
 		<image file="office.png" />
     <image file="start_button.png" />
     <image file="quit_button.png" />
-		<image file="sky.jpg" />
-		<image file="ship.png" />
-		<image file="shipengine.png" />
-		<image file="rocket.png" />
-		<image file="explosion.png" cols="12"/>
-		<image file="asteroid.png"/>
-	</atlas>
+		<image file="walking.png" cols="23" frames_per_second="15" speed="20"/>
+    <image file="waiting.png" cols="2" frames_per_second="2" speed="0"/>
+  </atlas>
 
   <set path = "sounds" />
   <sound file="background.ogg"/>
-  
 </resources>

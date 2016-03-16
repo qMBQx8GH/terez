@@ -8,7 +8,7 @@ class MainMenuScene: public Scene
 public:
     static spMainMenuScene instance;
 
-    MainMenuScene(Resources* res);
+    MainMenuScene();
 
 private:
     void onEvent(Event* ev);

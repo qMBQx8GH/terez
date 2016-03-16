@@ -115,15 +115,23 @@
   <ItemGroup>
     <ClCompile Include="../src/example.cpp" />
     <ClCompile Include="../src/main.cpp" />
+    <ClCompile Include="..\src\GameScene.cpp" />
     <ClCompile Include="..\src\MainMenuScene.cpp" />
     <ClCompile Include="..\src\MyButton.cpp" />
+    <ClCompile Include="..\src\Player.cpp" />
+    <ClCompile Include="..\src\res.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
+    <ClCompile Include="..\src\GameSound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="../src/example.h" />
+    <ClInclude Include="..\src\GameScene.h" />
     <ClInclude Include="..\src\MainMenuScene.h" />
     <ClInclude Include="..\src\MyButton.h" />
+    <ClInclude Include="..\src\Player.h" />
+    <ClInclude Include="..\src\res.h" />
     <ClInclude Include="..\src\Scene.h" />
+    <ClInclude Include="..\src\GameSound.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\data\xmls\ui.xml" />

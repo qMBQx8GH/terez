@@ -1,17 +1,19 @@
 #include "MainMenuScene.h"
+#include "res.h"
 #include "Sprite.h"
 #include "initActor.h"
 #include "MyButton.h"
+#include "GameScene.h"
 
 using namespace std;
 
 spMainMenuScene MainMenuScene::instance;
 
-MainMenuScene::MainMenuScene(Resources* res)
+MainMenuScene::MainMenuScene()
 {
     //create background
     spSprite office = new Sprite;
-	office->setResAnim(res->getResAnim("office"));
+	office->setResAnim(res::ui.getResAnim("office"));
 	office->setScaleX(_view->getWidth() / office->getWidth());
 	office->setScaleY(_view->getHeight() / office->getHeight());
 	office->attachTo(_view);
@@ -21,7 +23,7 @@ MainMenuScene::MainMenuScene(Resources* res)
     //create play button at center
     btn = initActor(new MyButton,
                              arg_name = "play",
-                             arg_resAnim = res->getResAnim("start_button"),
+                             arg_resAnim = res::ui.getResAnim("start_button"),
                              arg_anchor = Vector2(0.5f, 1.5f),
                              arg_pos = _view->getSize() / 2,
                              arg_attachTo = _view);
@@ -32,7 +34,7 @@ MainMenuScene::MainMenuScene(Resources* res)
     //create menu button
     btn = initActor(new MyButton,
                     arg_name = "exit",
-                    arg_resAnim = res->getResAnim("quit_button"),
+                    arg_resAnim = res::ui.getResAnim("quit_button"),
                     arg_anchor = Vector2(0.5f, -0.5f),
 					arg_pos = _view->getSize() / 2,
 					arg_attachTo = _view);
@@ -51,6 +53,6 @@ void MainMenuScene::onEvent(Event* ev)
     if (id == "play")
     {
         //clicked to play button change scene
-        ///TODO changeScene(GameScene::instance);
+       changeScene(GameScene::instance);
     }
 }
