@@ -6,7 +6,7 @@
 		<image file="start_button.png" />
 		<image file="quit_button.png" />
 		<image file="floor_tile.png" />
-		<image file="walking.png" cols="23" frames_per_second="15" speed="20"/>
+		<image file="walking.png" cols="23" frames_per_second="15" speed="0.5"/>
 		<image file="waiting.png" cols="2" frames_per_second="2" speed="0"/>
 	</atlas>
 

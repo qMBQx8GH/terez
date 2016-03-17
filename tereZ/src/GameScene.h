@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Player.h"
+#include "Door.h"
 
 DECLARE_SMART(GameScene, spGameScene);
 class GameScene: public Scene
@@ -14,7 +15,6 @@ private:
 	spPlayer zombie;
 	spSprite floor_left;
 	spSprite floor_right;
-	spSprite left_doors[7];
-	spSprite right_doors[7];
+	spDoor doors[7];
 	int cDoor;
 };

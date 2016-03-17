@@ -46,6 +46,13 @@ void Player::update(const UpdateState &us)
 		}
 	}
 
+	if (isWalking)
+	{
+		Vector2 pos = getPosition();
+		pos.x += animation->getAttribute("speed").as_float() * this->getScaleX();
+		setPosition(pos);
+	}
+
 	float maxFrames = animation->getColumns();
 	int framesPerSecond = animation->getAttribute("frames_per_second").as_int();
 	float framesPerMilliSecond = framesPerSecond / 1000.0f;
@@ -66,13 +73,5 @@ void Player::update(const UpdateState &us)
 	{
 		sprite->setAnimFrame(animation->getFrame(newFrame));
 		currentFrame = newFrame;
-	}
-
-	float speed = animation->getAttribute("speed").as_int() * (us.dt / 1000.0f);
-	if (speed > 0)
-	{
-		Vector2 pos = getPosition();
-		pos.x += speed;
-		setPosition(pos);
 	}
 }
