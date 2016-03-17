@@ -9,11 +9,11 @@ public:
 	Player();
 	void attachTo(spActor parent);
 	void update(const UpdateState &us);
+
 protected:
 	spSprite sprite;
 	int currentFrame;
 	float frameTime;
 	ResAnim *animation;
-
 	bool isWalking = false;
 };

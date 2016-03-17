@@ -11,6 +11,5 @@ namespace GameSound
 	void init(Resources *res);
 	void update();
 	void free();
-
 	void playBackground(char *name);
 }

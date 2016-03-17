@@ -6,10 +6,9 @@ DECLARE_SMART(MainMenuScene, spMainMenuScene);
 class MainMenuScene: public Scene
 {
 public:
-    static spMainMenuScene instance;
-
-    MainMenuScene();
+	static spMainMenuScene instance;
+	MainMenuScene();
 
 private:
-    void onEvent(Event* ev);
+	void onEvent(Event* ev);
 };

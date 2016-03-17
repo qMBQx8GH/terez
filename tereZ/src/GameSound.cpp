@@ -14,15 +14,17 @@ namespace GameSound
 		SoundPlayer::initialize();
 		player.setResources(res);
 	}
+
 	void update()
 	{
 		SoundSystem::instance->update();
 		player.update();
 	}
+
 	void free()
 	{
-
 	}
+
 	void playBackground(char *name)
 	{
 		player.play(res->get(name), PlayOptions().loop());

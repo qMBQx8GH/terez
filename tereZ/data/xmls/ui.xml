@@ -3,12 +3,13 @@
 	<set path = "images" />
 	<atlas>
 		<image file="office.png" />
-    <image file="start_button.png" />
-    <image file="quit_button.png" />
+		<image file="start_button.png" />
+		<image file="quit_button.png" />
+		<image file="floor_tile.png" />
 		<image file="walking.png" cols="23" frames_per_second="15" speed="20"/>
-    <image file="waiting.png" cols="2" frames_per_second="2" speed="0"/>
-  </atlas>
+		<image file="waiting.png" cols="2" frames_per_second="2" speed="0"/>
+	</atlas>
 
-  <set path = "sounds" />
-  <sound file="background.ogg"/>
+	<set path = "sounds" />
+	<sound file="background.ogg"/>
 </resources>
