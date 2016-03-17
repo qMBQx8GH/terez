@@ -6,7 +6,7 @@
 
 spGameScene GameScene::instance;
 
-GameScene::GameScene()
+GameScene::GameScene():cDoor(0)
 {
 	//create background
 	spSprite office = new Sprite;
