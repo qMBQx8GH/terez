@@ -12,4 +12,9 @@ public:
 private:
 	void onEvent(Event* ev);
 	spPlayer zombie;
+	spSprite floor_left;
+	spSprite floor_right;
+	spSprite left_doors[7];
+	spSprite right_doors[7];
+	int cDoor;
 };
