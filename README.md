@@ -1,5 +1,5 @@
 ### Build manually
-Or you can build Brick from sources:
+Or you can build tereZ from sources:
 ```bash
 # Install build tools
 sudo apt-get install build-essential cmake
