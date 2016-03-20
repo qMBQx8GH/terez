@@ -1,64 +1,72 @@
 #include "GameScene.h"
 #include "MainMenuScene.h"
+#include "GameMenu.h"
+#include "MyButton.h"
 #include "res.h"
-#include "Player.h"
-#include "Door.h"
+//#include "GameMenu.h"
 
 spGameScene GameScene::instance;
 
-GameScene::GameScene():cDoor(0)
+GameScene::GameScene()
 {
-	//create background
-	spSprite office = new Sprite;
-	office->setResAnim(res::ui.getResAnim("office"));
-	float hScale = _view->getWidth() / office->getWidth();
-	office->setScaleX(hScale);
-	float vScale = _view->getHeight() / office->getHeight();
-	office->setScaleY(vScale);
-	office->attachTo(_view);
+	//create game actor
+	_game = new Game;
+	_game->init();
+	_game->attachTo(_view);
 
-	zombie = new Player();
-	zombie->setPosition(Vector2(zombie->getWidth() / 2.0f, _view->getHeight() / 2.0f));
-	zombie->setScaleX(hScale);
-	zombie->setScaleY(vScale);
-	zombie->attachTo(_view);
+	//Game Actor would have own Clock.
+	//clock is internal time of each Actor
+	//by default own clock has only Stage
+	//clock could be paused and all children of this Actor would be paused to
+	_game->setClock(new Clock);
 
-	floor_left = initActor(new Sprite,
-		arg_resAnim = res::ui.getResAnim("floor_tile"),
-		arg_scaleX = hScale,
-		arg_scaleY = vScale,
-		arg_position = Vector2(0.0f, _view->getHeight() / 2.0f),
+	//create menu button
+	spActor btn = initActor(new MyButton,
+		arg_resAnim = res::ui.getResAnim("pause_button"),
+		arg_anchor = Vector2(0.5f, 0.5f),
 		arg_attachTo = _view);
 
-	float floor_width = floor_left->getWidth() * hScale;
-	float floor_height = floor_left->getHeight() * vScale;
-	floor_right = initActor(new Sprite,
-		arg_resAnim = res::ui.getResAnim("floor_tile"),
-		arg_scaleX = hScale,
-		arg_scaleY = vScale,
-		arg_position = Vector2(floor_width * 15, _view->getHeight() / 2.0f),
-		arg_attachTo = _view);
-	
-	for (int i = 0; i < 7; i++)
-	{
-		doors[i] = new Door(floor_width, floor_height);
-		doors[i]->setPosition(Vector2(floor_width * 2.0f + i * floor_width * 2.0f, _view->getHeight() / 2.0f));
-		doors[i]->setScaleX(hScale);
-		doors[i]->setScaleY(vScale);
-		doors[i]->attachTo(_view);
-	}
-	
-    //handle click to menu
-    office->addEventListener(TouchEvent::CLICK, CLOSURE(this, &GameScene::onEvent));
+	//align it to top right
+	btn->setX(_view->getWidth() - btn->getWidth() / 2);
+	btn->setY(btn->getHeight() / 2);
+
+	//handle click to menu
+	btn->addEventListener(TouchEvent::CLICK, CLOSURE(this, &GameScene::onEvent));
+
+	//subscribe to Hidden Event from GameMenu
+	//GameMenu::instance->addEventListener(GameScene::HiddenEvent::EVENT, CLOSURE(this, &GameScene::onEvent));
 }
+
 void GameScene::onEvent(Event* ev)
 {
-	if (doors[this->cDoor]->isClosed())
-		doors[this->cDoor]->open();
-	else
-		doors[this->cDoor]->close();
+	if (ev->type == TouchEvent::CLICK)
+	{
+		//menu button clicked
+		//pause game by pausing it's clock
+		_game->getClock()->pause();
 
-	this->cDoor++;
-	if (this->cDoor >= 7)
-		this->cDoor = 0;
+		//show GameMenu dialog
+		changeScene(GameMenu::instance);
+	}
+
+
+	/*
+	if (ev->type == GameScene::HiddenEvent::EVENT)
+	{
+		//event from GameMenu called after GameMenu::instance->hide()
+		const string& name = GameMenu::instance->getLastClicked();
+		if (name == "Exit")
+		{
+			//if "Exit" button was clicked
+			changeScene(MainMenuScene::instance);
+		}
+		else
+		{
+			//"Continue" button was clicked
+			//dialog already hidden
+			//just resume Clock to continue game
+			_game->getClock()->resume();
+		}
+	}
+	*/
 }

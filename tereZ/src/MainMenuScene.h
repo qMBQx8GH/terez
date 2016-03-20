@@ -11,4 +11,5 @@ public:
 
 private:
 	void onEvent(Event* ev);
+	spSprite office;
 };

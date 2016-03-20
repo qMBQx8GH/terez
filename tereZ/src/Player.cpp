@@ -7,27 +7,25 @@
 #include <sstream>
 #include "DebugActor.h"
 
-Player::Player(): frameTime(0.0f), currentFrame(0)
+Player::Player(): isDead(false), isWalking(false), frameTime(0.0f), currentFrame(0)
 {
 	animation = res::ui.getResAnim("waiting");
 
 	sprite = new Sprite;
-	sprite->setAnchor(Vector2(0.0f, 1.0f));
 	sprite->setResAnim(animation);
-}
-
-void Player::attachTo(spActor parent)
-{
-	Actor::attachTo(parent);
 	sprite->attachTo(this);
+
+	this->setSize(sprite->getSize());
+	this->setAnchor(0.5f, 1.0f);
 }
 
 void Player::update(const UpdateState &us)
 {
+	Actor::update(us);
 	const Uint8* data = SDL_GetKeyboardState(0);
 	if (data[SDL_SCANCODE_RIGHT])
 	{
-		if (!isWalking)
+		if (!isWalking && !isDead)
 		{
 			animation = res::ui.getResAnim("walking");
 			currentFrame = 0;
@@ -46,7 +44,7 @@ void Player::update(const UpdateState &us)
 		}
 	}
 
-	if (isWalking)
+	if (isWalking && !isDead)
 	{
 		Vector2 pos = getPosition();
 		pos.x += animation->getAttribute("speed").as_float() * this->getScaleX();
@@ -69,9 +67,19 @@ void Player::update(const UpdateState &us)
 	//std::ostringstream buff;
 	//buff << us.dt;
 	//DebugActor::instance->addDebugString(buff.str().c_str());
-	if (currentFrame != newFrame)
+	if (currentFrame != newFrame && !isDead)
 	{
 		sprite->setAnimFrame(animation->getFrame(newFrame));
 		currentFrame = newFrame;
+	}
+}
+
+void Player::die(float door_x, float door_width, float depth)
+{
+	if (!this->isDead)
+	{
+		this->isDead = true;
+		//this->detach();
+		spTween tween = this->addTween(Actor::TweenPosition(door_x + door_width / 2.0f, depth + this->getHeight()), 2000);
 	}
 }

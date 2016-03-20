@@ -7,13 +7,14 @@ class Player : public Actor
 {
 public:
 	Player();
-	void attachTo(spActor parent);
 	void update(const UpdateState &us);
+	void die(float door_x, float door_width, float depth);
 
 protected:
 	spSprite sprite;
 	int currentFrame;
 	float frameTime;
 	ResAnim *animation;
+	bool isDead = false;
 	bool isWalking = false;
 };

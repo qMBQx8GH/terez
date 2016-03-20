@@ -6,9 +6,10 @@ DECLARE_SMART(Door, spDoor);
 class Door : public Actor
 {
 public:
-	Door(float width, float height);
+	Door();
 	void open();
 	void close();
+	bool isOpen();
 	bool isClosed();
 protected:
 	spSprite _left;

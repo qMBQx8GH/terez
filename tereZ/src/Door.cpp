@@ -2,19 +2,21 @@
 #include "res.h"
 
 
-Door::Door(float width, float height): _closed(true)
+Door::Door(): _closed(true)
 {
 	_left = new Sprite;
 	_left->setResAnim(res::ui.getResAnim("floor_tile"));
-	_left->setPosition(Vector2(-_left->getWidth(), _left->getHeight()));
+	_left->setPosition(Vector2(0, _left->getHeight()));
 	_left->setAnchor(Vector2(0.0f, 1.0f));
 	_left->attachTo(this);
 
 	_right = new Sprite;
 	_right->setResAnim(res::ui.getResAnim("floor_tile"));
-	_right->setPosition(Vector2(_right->getWidth(), _right->getHeight()));
+	_right->setPosition(Vector2(_left->getWidth() + _right->getWidth(), _right->getHeight()));
 	_right->setAnchor(Vector2(1.0f, 1.0f));
 	_right->attachTo(this);
+
+	this->setSize(_left->getWidth() + _right->getWidth(), _left->getHeight());
 }
 
 void Door::open()
@@ -62,4 +64,9 @@ void Door::close()
 bool Door::isClosed()
 {
 	return this->_closed;
+}
+
+bool Door::isOpen()
+{
+	return !this->_closed;
 }
