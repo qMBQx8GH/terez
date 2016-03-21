@@ -14,11 +14,11 @@ void MyButton::onEvent(Event* ev)
 
 	if (ev->type == TouchEvent::TOUCH_DOWN)
 	{
-		addTween(Actor::TweenScale(0.95f), 300, 1, false);
+		//addTween(Actor::TweenScale(0.95f), 300, 1, false);
 	}
 
 	if (ev->type == TouchEvent::TOUCH_UP)
 	{
-		addTween(Actor::TweenScale(1.0f), 300, 1, false);
+		//addTween(Actor::TweenScale(1.0f), 300, 1, false);
 	}
 }

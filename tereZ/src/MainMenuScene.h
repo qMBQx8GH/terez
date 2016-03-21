@@ -12,4 +12,6 @@ public:
 private:
 	void onEvent(Event* ev);
 	spSprite office;
+	spSprite main_button;
+	spSprite speaker_button;
 };

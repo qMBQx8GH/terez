@@ -1,9 +1,10 @@
 #include "GameScene.h"
 #include "MainMenuScene.h"
-#include "GameMenu.h"
 #include "MyButton.h"
 #include "res.h"
-//#include "GameMenu.h"
+#include <stdlib.h>
+
+using namespace std;
 
 spGameScene GameScene::instance;
 
@@ -20,17 +21,30 @@ GameScene::GameScene()
 	//clock could be paused and all children of this Actor would be paused to
 	_game->setClock(new Clock);
 
-	//create menu button
-	spActor btn = initActor(new MyButton,
+	spActor btn = 0;
+
+	pause_button = initActor(new MyButton,
+		arg_name = "pause",
 		arg_resAnim = res::ui.getResAnim("pause_button"),
-		arg_anchor = Vector2(0.5f, 0.5f),
+		arg_scale2 = _game->getScale(),
 		arg_attachTo = _view);
+	pause_button->setX(_game->getWidth() - _game->getScaleX() * pause_button->getWidth() * 1.0f);
+	pause_button->addEventListener(TouchEvent::CLICK, CLOSURE(this, &GameScene::onEvent));
 
-	//align it to top right
-	btn->setX(_view->getWidth() - btn->getWidth() / 2);
-	btn->setY(btn->getHeight() / 2);
+	btn = initActor(new MyButton,
+		arg_name = "retry",
+		arg_resAnim = res::ui.getResAnim("retry_button"),
+		arg_scale2 = _game->getScale(),
+		arg_attachTo = _view);
+	btn->setX(_game->getWidth() - _game->getScaleX() * btn->getWidth() * 2.0f);
+	btn->addEventListener(TouchEvent::CLICK, CLOSURE(this, &GameScene::onEvent));
 
-	//handle click to menu
+	btn = initActor(new MyButton,
+		arg_name = "home",
+		arg_resAnim = res::ui.getResAnim("home_button"),
+		arg_scale2 = _game->getScale(),
+		arg_attachTo = _view);
+	btn->setX(_game->getWidth() - _game->getScaleX() * btn->getWidth() * 3.0f);
 	btn->addEventListener(TouchEvent::CLICK, CLOSURE(this, &GameScene::onEvent));
 
 	//subscribe to Hidden Event from GameMenu
@@ -39,16 +53,31 @@ GameScene::GameScene()
 
 void GameScene::onEvent(Event* ev)
 {
-	if (ev->type == TouchEvent::CLICK)
+	string id = ev->currentTarget->getName();
+
+	if (id == "pause")
 	{
 		//menu button clicked
 		//pause game by pausing it's clock
-		_game->getClock()->pause();
+		if (_game->getClock()->getPauseCounter() == 0)
+			_game->getClock()->pause();
+		else
+			_game->getClock()->resume();
 
-		//show GameMenu dialog
-		changeScene(GameMenu::instance);
+		pause_button->setResAnim(_game->getClock()->getPauseCounter() == 0 ? res::ui.getResAnim("pause_button") : res::ui.getResAnim("pause_button_a"));
 	}
 
+	if (id == "retry")
+	{
+		spGameScene newGame = new GameScene();
+		changeScene(newGame);
+		GameScene::instance = newGame;
+	}
+
+	if (id == "home")
+	{
+		changeScene(MainMenuScene::instance);
+	}
 
 	/*
 	if (ev->type == GameScene::HiddenEvent::EVENT)

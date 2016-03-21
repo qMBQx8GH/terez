@@ -117,7 +117,6 @@
     <ClCompile Include="../src/main.cpp" />
     <ClCompile Include="..\src\Door.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
-    <ClCompile Include="..\src\GameMenu.cpp" />
     <ClCompile Include="..\src\GameScene.cpp" />
     <ClCompile Include="..\src\MainMenuScene.cpp" />
     <ClCompile Include="..\src\MyButton.cpp" />
@@ -130,7 +129,6 @@
     <ClInclude Include="../src/example.h" />
     <ClInclude Include="..\src\Door.h" />
     <ClInclude Include="..\src\Game.h" />
-    <ClInclude Include="..\src\GameMenu.h" />
     <ClInclude Include="..\src\GameScene.h" />
     <ClInclude Include="..\src\MainMenuScene.h" />
     <ClInclude Include="..\src\MyButton.h" />
@@ -140,7 +138,9 @@
     <ClInclude Include="..\src\GameSound.h" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\data\xmls\ui.xml" />
+    <Xml Include="..\data\xmls\ui.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,16 +3,20 @@
 	<set path = "images" />
 	<atlas>
 		<image file="office.png" />
-		<image file="start_button.png" />
-		<image file="quit_button.png" />
-    <image file="pause_button.png" />
-    <image file="resume_button.png" />
-    <image file="menu_button.png" />
+    <image id="main_button" file="buttons/main.png" />
+    <image id="speaker_button" file="buttons/speaker.png" />
+    <image id="speaker_button_a" file="buttons/speaker_a.png" />
+    <image id="pause_button" file="buttons/pause.png" />
+    <image id="pause_button_a" file="buttons/pause_a.png" />
+    <image id="retry_button" file="buttons/retry.png" />
+    <image id="home_button" file="buttons/home.png" />
+
     <image file="floor_tile.png" />
 		<image file="walking.png" cols="23" frames_per_second="15" speed="0.5"/>
 		<image file="waiting.png" cols="2" frames_per_second="2" speed="0"/>
 	</atlas>
 
-	<set path = "sounds" />
+
+  <set path = "sounds" />
 	<sound file="background.ogg"/>
 </resources>

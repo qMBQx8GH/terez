@@ -12,4 +12,7 @@ namespace GameSound
 	void update();
 	void free();
 	void playBackground(char *name);
+	void mute();
+	void unmute();
+	bool isMuted();
 }

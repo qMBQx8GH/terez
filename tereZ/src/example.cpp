@@ -3,7 +3,6 @@
 #include "res.h"
 
 #include "MainMenuScene.h"
-#include "GameMenu.h"
 #include "GameScene.h"
 
 #include <functional>
@@ -23,8 +22,6 @@ void example_init()
 
 	MainMenuScene::instance = new MainMenuScene();
 	getStage()->addChild(MainMenuScene::instance->getView());
-
-	GameMenu::instance = new GameMenu();
 }
 
 
