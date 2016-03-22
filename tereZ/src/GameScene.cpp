@@ -23,32 +23,26 @@ GameScene::GameScene()
 
 	spActor btn = 0;
 
-	pause_button = initActor(new MyButton,
+	pause_button = initActor(new MyButton(res::ui.getResAnim("pause_button"), res::ui.getResAnim("pause_button_a")),
 		arg_name = "pause",
-		arg_resAnim = res::ui.getResAnim("pause_button"),
 		arg_scale2 = _game->getScale(),
 		arg_attachTo = _view);
 	pause_button->setX(_game->getWidth() - _game->getScaleX() * pause_button->getWidth() * 1.0f);
-	pause_button->addEventListener(TouchEvent::CLICK, CLOSURE(this, &GameScene::onEvent));
+	pause_button->addEventListener(TouchEvent::TOUCH_DOWN, CLOSURE(this, &GameScene::onEvent));
 
-	btn = initActor(new MyButton,
+	btn = initActor(new MyButton(res::ui.getResAnim("retry_button") , res::ui.getResAnim("retry_button_a")),
 		arg_name = "retry",
-		arg_resAnim = res::ui.getResAnim("retry_button"),
 		arg_scale2 = _game->getScale(),
 		arg_attachTo = _view);
 	btn->setX(_game->getWidth() - _game->getScaleX() * btn->getWidth() * 2.0f);
-	btn->addEventListener(TouchEvent::CLICK, CLOSURE(this, &GameScene::onEvent));
+	btn->addEventListener(TouchEvent::TOUCH_UP, CLOSURE(this, &GameScene::onEvent));
 
-	btn = initActor(new MyButton,
+	btn = initActor(new MyButton(res::ui.getResAnim("home_button"), res::ui.getResAnim("home_button_a")),
 		arg_name = "home",
-		arg_resAnim = res::ui.getResAnim("home_button"),
 		arg_scale2 = _game->getScale(),
 		arg_attachTo = _view);
 	btn->setX(_game->getWidth() - _game->getScaleX() * btn->getWidth() * 3.0f);
-	btn->addEventListener(TouchEvent::CLICK, CLOSURE(this, &GameScene::onEvent));
-
-	//subscribe to Hidden Event from GameMenu
-	//GameMenu::instance->addEventListener(GameScene::HiddenEvent::EVENT, CLOSURE(this, &GameScene::onEvent));
+	btn->addEventListener(TouchEvent::TOUCH_UP, CLOSURE(this, &GameScene::onEvent));
 }
 
 void GameScene::onEvent(Event* ev)
@@ -63,8 +57,7 @@ void GameScene::onEvent(Event* ev)
 			_game->getClock()->pause();
 		else
 			_game->getClock()->resume();
-
-		pause_button->setResAnim(_game->getClock()->getPauseCounter() == 0 ? res::ui.getResAnim("pause_button") : res::ui.getResAnim("pause_button_a"));
+		pause_button->setPressedState(_game->getClock()->getPauseCounter() != 0);
 	}
 
 	if (id == "retry")
@@ -78,24 +71,4 @@ void GameScene::onEvent(Event* ev)
 	{
 		changeScene(MainMenuScene::instance);
 	}
-
-	/*
-	if (ev->type == GameScene::HiddenEvent::EVENT)
-	{
-		//event from GameMenu called after GameMenu::instance->hide()
-		const string& name = GameMenu::instance->getLastClicked();
-		if (name == "Exit")
-		{
-			//if "Exit" button was clicked
-			changeScene(MainMenuScene::instance);
-		}
-		else
-		{
-			//"Continue" button was clicked
-			//dialog already hidden
-			//just resume Clock to continue game
-			_game->getClock()->resume();
-		}
-	}
-	*/
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "oxygine-framework.h"
 #include "Scene.h"
+#include "MyButton.h"
 
 DECLARE_SMART(MainMenuScene, spMainMenuScene);
 class MainMenuScene: public Scene
@@ -12,6 +13,6 @@ public:
 private:
 	void onEvent(Event* ev);
 	spSprite office;
-	spSprite main_button;
-	spSprite speaker_button;
+	spMyButton main_button;
+	spMyButton speaker_button;
 };

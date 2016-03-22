@@ -4,12 +4,17 @@
 	<atlas>
 		<image file="office.png" />
     <image id="main_button" file="buttons/main.png" />
+    <image id="main_button_a" file="buttons/main_a.png" />
     <image id="speaker_button" file="buttons/speaker.png" />
     <image id="speaker_button_a" file="buttons/speaker_a.png" />
     <image id="pause_button" file="buttons/pause.png" />
     <image id="pause_button_a" file="buttons/pause_a.png" />
     <image id="retry_button" file="buttons/retry.png" />
+    <image id="retry_button_a" file="buttons/retry_a.png" />
     <image id="home_button" file="buttons/home.png" />
+    <image id="home_button_a" file="buttons/home_a.png" />
+    <image id="star_button" file="buttons/star.png" />
+    <image id="star_button_a" file="buttons/star_a.png" />
 
     <image file="floor_tile.png" />
 		<image file="walking.png" cols="23" frames_per_second="15" speed="0.5"/>

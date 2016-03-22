@@ -23,25 +23,24 @@ MainMenuScene::MainMenuScene()
 	office->attachTo(_view);
 
 	//create play button at center
-	main_button = initActor(new MyButton,
+	main_button = initActor(new MyButton(res::ui.getResAnim("main_button"), res::ui.getResAnim("main_button_a")),
 		arg_name = "play",
-		arg_resAnim = res::ui.getResAnim("main_button"),
 		arg_anchor = Vector2(0.5f, 0.0f),
 		arg_pos = Vector2(office->getWidth() / 2.0f, 0.0f),
 		arg_attachTo = office);
 
 	//handle click to button
-	main_button->addEventListener(TouchEvent::CLICK, CLOSURE(this, &MainMenuScene::onEvent));
+	main_button->addEventListener(TouchEvent::TOUCH_UP, CLOSURE(this, &MainMenuScene::onEvent));
 
 	//create menu button
-	speaker_button = initActor(new MyButton,
+	speaker_button = initActor(new MyButton(res::ui.getResAnim("speaker_button"), res::ui.getResAnim("speaker_button_a")),
 		arg_name = "speaker",
-		arg_resAnim = GameSound::isMuted()? res::ui.getResAnim("speaker_button"): res::ui.getResAnim("speaker_button_a"),
+		//arg_resAnim = GameSound::isMuted()? : ,
 		arg_anchor = Vector2(1.0f, 0.0f),
 		arg_pos = Vector2(office->getWidth(), 0.0f),
 		arg_attachTo = office);
 
-	speaker_button->addEventListener(TouchEvent::CLICK, CLOSURE(this, &MainMenuScene::onEvent));
+	speaker_button->addEventListener(TouchEvent::TOUCH_DOWN, CLOSURE(this, &MainMenuScene::onEvent));
 }
 
 void MainMenuScene::onEvent(Event* ev)
@@ -54,7 +53,8 @@ void MainMenuScene::onEvent(Event* ev)
 			GameSound::unmute();
 		else
 			GameSound::mute();
-		speaker_button->setResAnim(GameSound::isMuted() ? res::ui.getResAnim("speaker_button") : res::ui.getResAnim("speaker_button_a"));
+		speaker_button->setPressedState(GameSound::isMuted());
+		//speaker_button->setResAnim(GameSound::isMuted() ? res::ui.getResAnim("speaker_button") : res::ui.getResAnim("speaker_button_a"));
 	}
 
 	if (id == "play")
