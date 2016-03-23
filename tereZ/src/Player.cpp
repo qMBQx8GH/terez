@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "GameScene.h"
 #include "res.h"
 
 #include "SDL.h"
@@ -79,7 +80,21 @@ void Player::die(float door_x, float door_width, float depth)
 	if (!this->isDead)
 	{
 		this->isDead = true;
-		//this->detach();
-		spTween tween = this->addTween(Actor::TweenPosition(door_x + door_width / 2.0f, depth + this->getHeight()), 2000);
+		spTween tween = this->addTween(Actor::TweenPosition(door_x + door_width / 2.0f, depth + this->getHeight()), 1000);
+		tween->setDoneCallback(CLOSURE(this, &Player::onDead));
 	}
+}
+
+void Player::onDead(Event *a_event)
+{
+	int type = 123;
+	Event event(type);
+	GameScene::instance->getView()->dispatchEvent(&event);
+}
+
+void Player::win()
+{
+	int type = 124;
+	Event event(type);
+	GameScene::instance->getView()->dispatchEvent(&event);
 }

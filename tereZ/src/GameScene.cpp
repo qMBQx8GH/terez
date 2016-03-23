@@ -1,5 +1,6 @@
 #include "GameScene.h"
 #include "MainMenuScene.h"
+#include "EndScene.h"
 #include "MyButton.h"
 #include "res.h"
 #include <stdlib.h>
@@ -43,6 +44,9 @@ GameScene::GameScene()
 		arg_attachTo = _view);
 	btn->setX(_game->getWidth() - _game->getScaleX() * btn->getWidth() * 3.0f);
 	btn->addEventListener(TouchEvent::TOUCH_UP, CLOSURE(this, &GameScene::onEvent));
+
+	_view->addEventListener(123, CLOSURE(this, &GameScene::onEvent));
+	_view->addEventListener(124, CLOSURE(this, &GameScene::onEvent));
 }
 
 void GameScene::onEvent(Event* ev)
@@ -70,5 +74,17 @@ void GameScene::onEvent(Event* ev)
 	if (id == "home")
 	{
 		changeScene(MainMenuScene::instance);
+	}
+
+	if (ev->type == 123)
+	{
+		EndScene::instance = new EndScene(0);
+		changeScene(EndScene::instance);
+	}
+
+	if (ev->type == 124)
+	{
+		EndScene::instance = new EndScene(3);
+		changeScene(EndScene::instance);
 	}
 }

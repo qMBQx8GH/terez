@@ -116,6 +116,7 @@
     <ClCompile Include="../src/example.cpp" />
     <ClCompile Include="../src/main.cpp" />
     <ClCompile Include="..\src\Door.cpp" />
+    <ClCompile Include="..\src\EndScene.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\GameScene.cpp" />
     <ClCompile Include="..\src\MainMenuScene.cpp" />
@@ -128,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="../src/example.h" />
     <ClInclude Include="..\src\Door.h" />
+    <ClInclude Include="..\src\EndScene.h" />
     <ClInclude Include="..\src\Game.h" />
     <ClInclude Include="..\src\GameScene.h" />
     <ClInclude Include="..\src\MainMenuScene.h" />

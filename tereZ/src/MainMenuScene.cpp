@@ -54,7 +54,6 @@ void MainMenuScene::onEvent(Event* ev)
 		else
 			GameSound::mute();
 		speaker_button->setPressedState(GameSound::isMuted());
-		//speaker_button->setResAnim(GameSound::isMuted() ? res::ui.getResAnim("speaker_button") : res::ui.getResAnim("speaker_button_a"));
 	}
 
 	if (id == "play")

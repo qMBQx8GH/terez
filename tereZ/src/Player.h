@@ -8,7 +8,9 @@ class Player : public Actor
 public:
 	Player();
 	void update(const UpdateState &us);
+	void onDead(Event *a_event);
 	void die(float door_x, float door_width, float depth);
+	void win();
 
 protected:
 	spSprite sprite;

@@ -68,10 +68,14 @@ void Game::init()
 
 void Game::doUpdate(const UpdateState& us)
 {
-	std::ostringstream buff;
-	buff << _player->getX() << "; " << (*cDoor)->getX() << "; " << (*cDoor)->getWidth();
-	DebugActor::instance->addDebugString(buff.str().c_str());
+	//std::ostringstream buff;
+	//buff << _player->getX() << "; " << (*cDoor)->getX() << "; " << (*cDoor)->getWidth();
+	//DebugActor::instance->addDebugString(buff.str().c_str());
 
+	if (_player->getX() >= _office->getWidth())
+	{
+		_player->win();
+	}
 
 	for (doors::iterator i = _doors.begin(); i != _doors.end(); i++)
 	{
