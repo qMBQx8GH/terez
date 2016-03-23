@@ -57,13 +57,10 @@ void Game::init()
 		door = initActor(new Door(),
 			arg_position = Vector2(floor_width + i * floor_width * 2.0f, _office->getHeight() / 2.0f),
 			arg_attachTo = this);
+		door->startTimer(1 + 1000 * i, 7000, 1000);
 		_doors.push_back(door);
 	}
 	cDoor = _doors.begin();
-
-	//handle click to menu
-	_office->addEventListener(TouchEvent::CLICK, CLOSURE(this, &Game::onEvent));
-
 }
 
 void Game::doUpdate(const UpdateState& us)
@@ -90,17 +87,4 @@ void Game::doUpdate(const UpdateState& us)
 			break;
 		}
 	}
-}
-
-void Game::onEvent(Event* ev)
-{
-	spDoor door = *this->cDoor;
-	if (door->isClosed())
-		door->open();
-	else
-		door->close();
-
-	this->cDoor++;
-	if (this->cDoor == _doors.end())
-		this->cDoor = _doors.begin();
 }

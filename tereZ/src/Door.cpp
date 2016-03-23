@@ -2,7 +2,7 @@
 #include "res.h"
 
 
-Door::Door(): _closed(true)
+Door::Door(): _closed(true), _timer_start(0)
 {
 	_left = new Sprite;
 	_left->setResAnim(res::ui.getResAnim("floor_tile"));
@@ -17,6 +17,43 @@ Door::Door(): _closed(true)
 	_right->attachTo(this);
 
 	this->setSize(_left->getWidth() + _right->getWidth(), _left->getHeight());
+}
+
+void Door::update(const UpdateState &us)
+{
+	Actor::update(us);
+	if (this->_timer_start)
+	{
+		timeMS now = getTimeMS();
+		timeMS passed = getTimeMS() - this->_timer_start;
+		if (this->_timer_offset > 0)
+		{
+			if (passed > this->_timer_offset)
+			{
+				this->_timer_start = now;
+				this->_timer_offset = 0;
+				this->open();
+			}
+		}
+		else if (this->isClosed() && (passed > this->_timer_interval))
+		{
+			this->_timer_start = now;
+			this->open();
+		}
+		else if (this->isOpen() && (passed > this->_timer_open))
+		{
+			this->_timer_start = now;
+			this->close();
+		}
+	}
+}
+
+void Door::startTimer(int offset, int interval, int open)
+{
+	this->_timer_offset = offset;
+	this->_timer_interval = interval;
+	this->_timer_open = open;
+	this->_timer_start = getTimeMS();
 }
 
 void Door::open()

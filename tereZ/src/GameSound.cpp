@@ -36,6 +36,14 @@ namespace GameSound
 		}
 	}
 
+	void play(char *name)
+	{
+		if (!_muted)
+		{
+			player.play(res->get(name));
+		}
+	}
+
 	void mute()
 	{
 		_muted = true;

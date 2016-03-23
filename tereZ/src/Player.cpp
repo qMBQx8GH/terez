@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "GameSound.h"
 #include "GameScene.h"
 #include "res.h"
 
@@ -32,6 +33,11 @@ void Player::update(const UpdateState &us)
 			currentFrame = 0;
 			frameTime = 0.0f;
 			isWalking = true;
+			if (!said)
+			{
+				GameSound::play("voice");
+				said = true;
+			}
 		}
 	}
 	else

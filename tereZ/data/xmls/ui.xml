@@ -21,7 +21,7 @@
 		<image file="waiting.png" cols="2" frames_per_second="2" speed="0"/>
 	</atlas>
 
-
   <set path = "sounds" />
 	<sound file="background.ogg"/>
+  <sound file="voice.ogg" />
 </resources>

@@ -19,4 +19,5 @@ protected:
 	ResAnim *animation;
 	bool isDead = false;
 	bool isWalking = false;
+	bool said = false;
 };
