@@ -2,11 +2,11 @@
 #include "oxygine-framework.h"
 using namespace oxygine;
 
-DECLARE_SMART(Door, spDoor);
-class Door : public Actor
+DECLARE_SMART(Trap, spTrap);
+class Trap : public Sprite
 {
 public:
-	Door();
+	Trap(ResAnim *resOpen, ResAnim *resClose);
 	void update(const UpdateState &us);
 	void startTimer(int offset, int interval, int open);
 	void open();
@@ -14,8 +14,8 @@ public:
 	bool isOpen();
 	bool isClosed();
 protected:
-	spSprite _left;
-	spSprite _right;
+	ResAnim *_open;
+	ResAnim *_close;
 	bool _closed;
 	timeMS _timer_start;
 	timeMS _timer_offset;

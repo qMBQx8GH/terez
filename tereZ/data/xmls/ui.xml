@@ -1,35 +1,85 @@
 <?xml version="1.0"?>
 <resources>
 	<level id="level1">
-		<background image="office" music="background" />
-		<player sprite-walking="walking" sprite-waiting="waiting" />
-		<static sprite="floor_tile" position-x="0" position-y="450" />
+		<background image="office" music-todo="background" />
+		<player position-x="70" position-y="495" sprite-walking-todo="walking" sprite-waiting-todo="waiting" />
+		<tile image="floor_tile" position-x="0" position-y="495" />
 		<trap
+      id="trap1"
 			sprite-open="door_open"
 			sprite-close="door_close"
 			position-x="100"
-			position-y="450"
+			position-y="495"
 			timer-offset="1"
-			timer-interval="1000"
-			timer-open="300"
+			timer-interval="16000"
+			timer-open="7000"
 		/>
 		<trap
+      id="trap2"
 			sprite-open="door_open"
 			sprite-close="door_close"
 			position-x="300"
-			position-y="450"
-			timer-offset="1001"
-			timer-interval="1000"
-			timer-open="300"
+			position-y="495"
+			timer-offset="7000"
+			timer-interval="16000"
+			timer-open="7000"
 		/>
-		<static sprite="floor_tile" position-x="400" position-y="450" />
+    <trap
+      id="trap3"
+			sprite-open="door_open"
+			sprite-close="door_close"
+			position-x="500"
+			position-y="495"
+			timer-offset="14000"
+			timer-interval="16000"
+			timer-open="7000"
+		/>
+    <trap
+      id="trap4"
+			sprite-open="door_open"
+			sprite-close="door_close"
+			position-x="700"
+			position-y="495"
+			timer-offset="21000"
+			timer-interval="16000"
+			timer-open="7000"
+		/>
+    <trap
+      id="trap5"
+			sprite-open="door_open"
+			sprite-close="door_close"
+			position-x="900"
+			position-y="495"
+			timer-offset="28000"
+			timer-interval="16000"
+			timer-open="7000"
+		/>
+    <trap
+      id="trap6"
+			sprite-open="door_open"
+			sprite-close="door_close"
+			position-x="1100"
+			position-y="495"
+			timer-offset="35000"
+			timer-interval="16000"
+			timer-open="7000"
+		/>
+    <trap
+      id="trap7"
+			sprite-open="door_open"
+			sprite-close="door_close"
+			position-x="1300"
+			position-y="495"
+			timer-offset="42000"
+			timer-interval="16000"
+			timer-open="7000"
+		/>
+    <tile image="floor_tile" position-x="1500" position-y="495" />
 		<star num="3" time-min="0" time-max="60000" />
 		<star num="2" time-min="60001" time-max="100000" />
 		<star num="1" time-min="100001" />
 	</level>
-	<level id="level2">
-	</level>
-<!--
+
 	<set path = "images" />
 	<atlas>
 		<image file="office.png" />
@@ -49,10 +99,12 @@
 		<image file="floor_tile.png" />
 		<image file="walking.png" cols="23" frames_per_second="15" speed="0.5"/>
 		<image file="waiting.png" cols="2" frames_per_second="2" speed="0"/>
-	</atlas>
+    <image file="door_open.png" cols="19" duration="500"/>
+    <image file="door_close.png" cols="19" duration="500"/>
+  </atlas>
 
 	<set path = "sounds" />
 	<sound file="background.ogg"/>
 	<sound file="voice.ogg" />
--->
+
 </resources>

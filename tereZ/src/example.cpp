@@ -1,5 +1,6 @@
 #include "oxygine-framework.h"
 #include "GameSound.h"
+#include "LevelRes.h"
 #include "res.h"
 
 #include "MainMenuScene.h"
@@ -10,14 +11,15 @@ using namespace oxygine;
 
 void example_preinit()
 {
-	GameSound::init(&res::ui);
-	res::load();
 }
 
 //called from main.cpp
 void example_init()
 {
 	//initialize our sound system with 16 channels
+	GameSound::init(&res::ui);
+	LevelRes::initialize();
+	res::load();
 
 	GameSound::playBackground("background");
 
@@ -39,4 +41,5 @@ void example_destroy()
 	//free previously loaded resources
 	res::free();
 	GameSound::free();
+	LevelRes::free();
 }

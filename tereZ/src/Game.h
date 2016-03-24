@@ -1,7 +1,7 @@
 #pragma once
 #include "oxygine-framework.h"
 #include "Player.h"
-#include "Door.h"
+#include "Trap.h"
 using namespace oxygine;
 
 DECLARE_SMART(Game, spGame);
@@ -15,7 +15,7 @@ public:
     void init();
 
 protected:
-    friend class Door;
+    friend class Trap;
     friend class Player;
 
 	void onEvent(Event* ev);
@@ -25,7 +25,6 @@ protected:
 	spSprite _office;
     spPlayer _player;
 
-	typedef std::list<spDoor> doors;
-	doors _doors;
-	doors::iterator cDoor;
+	typedef std::list<spTrap> traps;
+	traps _traps;
 };
