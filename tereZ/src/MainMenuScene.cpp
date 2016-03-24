@@ -39,6 +39,8 @@ MainMenuScene::MainMenuScene()
 		arg_anchor = Vector2(1.0f, 0.0f),
 		arg_pos = Vector2(office->getWidth(), 0.0f),
 		arg_attachTo = office);
+	//TODO
+	//speaker_button->setPressedState(!GameSound::isMuted());
 
 	speaker_button->addEventListener(TouchEvent::TOUCH_DOWN, CLOSURE(this, &MainMenuScene::onEvent));
 }
@@ -53,7 +55,7 @@ void MainMenuScene::onEvent(Event* ev)
 			GameSound::unmute();
 		else
 			GameSound::mute();
-		speaker_button->setPressedState(GameSound::isMuted());
+		speaker_button->setPressedState(!GameSound::isMuted());
 	}
 
 	if (id == "play")

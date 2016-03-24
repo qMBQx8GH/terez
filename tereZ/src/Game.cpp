@@ -57,7 +57,7 @@ void Game::init()
 		door = initActor(new Door(),
 			arg_position = Vector2(floor_width + i * floor_width * 2.0f, _office->getHeight() / 2.0f),
 			arg_attachTo = this);
-		door->startTimer(1 + 1000 * i, 7000, 1000);
+		door->startTimer(1 + 7000 * i, 16000, 7000);
 		_doors.push_back(door);
 	}
 	cDoor = _doors.begin();
