@@ -37,4 +37,5 @@ void example_destroy()
 	MainMenuScene::instance = 0;
 	//free previously loaded resources
 	res::free();
+	GameSound::free();
 }

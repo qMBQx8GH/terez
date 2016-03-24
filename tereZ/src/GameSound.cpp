@@ -26,6 +26,7 @@ namespace GameSound
 
 	void free()
 	{
+		SoundPlayer::free();
 	}
 
 	void playBackground(char *name)
