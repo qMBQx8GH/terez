@@ -1,27 +1,58 @@
 <?xml version="1.0"?>
 <resources>
+	<level id="level1">
+		<background image="office" music="background" />
+		<player sprite-walking="walking" sprite-waiting="waiting" />
+		<static sprite="floor_tile" position-x="0" position-y="450" />
+		<trap
+			sprite-open="door_open"
+			sprite-close="door_close"
+			position-x="100"
+			position-y="450"
+			timer-offset="1"
+			timer-interval="1000"
+			timer-open="300"
+		/>
+		<trap
+			sprite-open="door_open"
+			sprite-close="door_close"
+			position-x="300"
+			position-y="450"
+			timer-offset="1001"
+			timer-interval="1000"
+			timer-open="300"
+		/>
+		<static sprite="floor_tile" position-x="400" position-y="450" />
+		<star num="3" time-min="0" time-max="60000" />
+		<star num="2" time-min="60001" time-max="100000" />
+		<star num="1" time-min="100001" />
+	</level>
+	<level id="level2">
+	</level>
+<!--
 	<set path = "images" />
 	<atlas>
 		<image file="office.png" />
-    <image id="main_button" file="buttons/main.png" />
-    <image id="main_button_a" file="buttons/main_a.png" />
-    <image id="speaker_button" file="buttons/speaker.png" />
-    <image id="speaker_button_a" file="buttons/speaker_a.png" />
-    <image id="pause_button" file="buttons/pause.png" />
-    <image id="pause_button_a" file="buttons/pause_a.png" />
-    <image id="retry_button" file="buttons/retry.png" />
-    <image id="retry_button_a" file="buttons/retry_a.png" />
-    <image id="home_button" file="buttons/home.png" />
-    <image id="home_button_a" file="buttons/home_a.png" />
-    <image id="star_button" file="buttons/star.png" />
-    <image id="star_button_a" file="buttons/star_a.png" />
+		<image id="main_button" file="buttons/main.png" />
+		<image id="main_button_a" file="buttons/main_a.png" />
+		<image id="speaker_button" file="buttons/speaker.png" />
+		<image id="speaker_button_a" file="buttons/speaker_a.png" />
+		<image id="pause_button" file="buttons/pause.png" />
+		<image id="pause_button_a" file="buttons/pause_a.png" />
+		<image id="retry_button" file="buttons/retry.png" />
+		<image id="retry_button_a" file="buttons/retry_a.png" />
+		<image id="home_button" file="buttons/home.png" />
+		<image id="home_button_a" file="buttons/home_a.png" />
+		<image id="star_button" file="buttons/star.png" />
+		<image id="star_button_a" file="buttons/star_a.png" />
 
-    <image file="floor_tile.png" />
+		<image file="floor_tile.png" />
 		<image file="walking.png" cols="23" frames_per_second="15" speed="0.5"/>
 		<image file="waiting.png" cols="2" frames_per_second="2" speed="0"/>
 	</atlas>
 
-  <set path = "sounds" />
+	<set path = "sounds" />
 	<sound file="background.ogg"/>
-  <sound file="voice.ogg" />
+	<sound file="voice.ogg" />
+-->
 </resources>

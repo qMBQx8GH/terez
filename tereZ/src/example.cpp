@@ -8,15 +8,16 @@
 #include <functional>
 using namespace oxygine;
 
-void example_preinit() {}
+void example_preinit()
+{
+	GameSound::init(&res::ui);
+	res::load();
+}
 
 //called from main.cpp
 void example_init()
 {
 	//initialize our sound system with 16 channels
-
-	GameSound::init(&res::ui);
-	res::load();
 
 	GameSound::playBackground("background");
 
