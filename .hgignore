@@ -5,3 +5,9 @@ regexp:\.cmake/build/
 regexp:\.pyc$
 regexp:\.suo$
 regexp:\.sdf$
+regexp:\.DS_Store$
+regexp:\.xcscheme$
+glob:*.xcodeproj/*.pbxuser
+glob:*.xcodeproj/*.perspective*
+glob:*.xcodeproj/*.mode*
+glob:xcuserdata

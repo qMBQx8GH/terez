@@ -15,13 +15,25 @@
 		0405A00118720D2200BA6557 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04059FF11872031A00BA6557 /* libpng.a */; };
 		049B57321871FBE900EF3C66 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 049B57311871FBE900EF3C66 /* Cocoa.framework */; };
 		049B574A1871FBE900EF3C66 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049B57491871FBE900EF3C66 /* Images.xcassets */; };
-		4283FEFC63F0CD0E873A0000 /* ../src/example.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6D07EF7B77E90D3593AD699 /* ../src/example.cpp */; };
-		FC1F7CD5BB2E35CBF0F19C55 /* ../src/main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7067CBBE80C46D1FB6DFBDB0 /* ../src/main.cpp */; };
-		AE0755281220E087835B9255 /* ../data/fonts in Sources */ = {isa = PBXBuildFile; fileRef = 8589EAFF309CAD68386D070C /* ../data/fonts */; };
-		415ED7E70CAD19461922995D /* ../data/images in Sources */ = {isa = PBXBuildFile; fileRef = 84016E51C6B36D6F3C9F0AC9 /* ../data/images */; };
-		056A4AD683CBF721245568A8 /* ../data/res.xml in Sources */ = {isa = PBXBuildFile; fileRef = BAA397F43A1D2C44A3C2728B /* ../data/res.xml */; };
-
-		
+		12C7B8821CA5715A009D904B /* liboxygine-sound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C7B87E1CA570B0009D904B /* liboxygine-sound.a */; };
+		12C7B8D61CA57C7C009D904B /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8CA1CA57C6F009D904B /* MainMenuScene.cpp */; };
+		12C7B8D71CA57C8E009D904B /* res.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8D01CA57C6F009D904B /* res.cpp */; };
+		12C7B8D81CA57C9E009D904B /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8D21CA57C6F009D904B /* Scene.cpp */; };
+		12C7B8D91CA57CAC009D904B /* LevelRes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8C71CA57C6F009D904B /* LevelRes.cpp */; };
+		12C7B8DA1CA57CB9009D904B /* MyButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8CC1CA57C6F009D904B /* MyButton.cpp */; };
+		12C7B8DB1CA57CC4009D904B /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8C31CA57C6F009D904B /* GameScene.cpp */; };
+		12C7B8DC1CA57CCF009D904B /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8C11CA57C6F009D904B /* Game.cpp */; };
+		12C7B8DD1CA57CDB009D904B /* Trap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8D41CA57C6F009D904B /* Trap.cpp */; };
+		12C7B8DE1CA57CE6009D904B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8CE1CA57C6F009D904B /* Player.cpp */; };
+		12C7B8DF1CA57CEF009D904B /* EndScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8BD1CA57C6F009D904B /* EndScene.cpp */; };
+		12C7B8E01CA57CF8009D904B /* GameSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12C7B8C51CA57C6F009D904B /* GameSound.cpp */; };
+		12C7B8E81CA57D58009D904B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C7B8E71CA57D58009D904B /* OpenAL.framework */; };
+		12C7B8F51CA57EEF009D904B /* xmls in Resources */ = {isa = PBXBuildFile; fileRef = 12C7B8F41CA57EEF009D904B /* xmls */; };
+		12C7B8F71CA57EFC009D904B /* sounds in Resources */ = {isa = PBXBuildFile; fileRef = 12C7B8F61CA57EFC009D904B /* sounds */; };
+		415ED7E70CAD19461922995D /* images in Resources */ = {isa = PBXBuildFile; fileRef = 84016E51C6B36D6F3C9F0AC9 /* images */; };
+		4283FEFC63F0CD0E873A0000 /* example.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6D07EF7B77E90D3593AD699 /* example.cpp */; };
+		AE0755281220E087835B9255 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 8589EAFF309CAD68386D070C /* fonts */; };
+		FC1F7CD5BB2E35CBF0F19C55 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7067CBBE80C46D1FB6DFBDB0 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,32 +86,111 @@
 			remoteGlobalIDString = BECDF5FE0761BA81005FE872;
 			remoteInfo = Framework;
 		};
+		12C7B87D1CA570B0009D904B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12C7B8791CA570B0009D904B /* oxygine-sound.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 92AF25E919C637F80026E2CE;
+			remoteInfo = "oxygine-sound";
+		};
+		12C7B8831CA572BB009D904B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12C7B8791CA570B0009D904B /* oxygine-sound.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 92AF25E819C637F80026E2CE;
+			remoteInfo = "oxygine-sound";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		04059FEC187202A200BA6557 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04059FEE187202AC00BA6557 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		04059FF01872031A00BA6557 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../../oxygine-framework//oxygine/third_party/macosx/libraries/libjpeg.a; sourceTree = "<group>"; };
-		04059FF11872031A00BA6557 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = ../../oxygine-framework//oxygine/third_party/macosx/libraries/libpng.a; sourceTree = "<group>"; };
-		04059FF4187203A600BA6557 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../../oxygine-framework//oxygine/third_party/ios/libraries/libjpeg.a; sourceTree = "<group>"; };
-		04059FF5187203A600BA6557 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = ../../oxygine-framework//oxygine/third_party/ios/libraries/libpng.a; sourceTree = "<group>"; };
-		049B572E1871FBE900EF3C66 /* demo_macosx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tereZ_macosx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04059FF01872031A00BA6557 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = "../../oxygine-framework//oxygine/third_party/macosx/libraries/libjpeg.a"; sourceTree = "<group>"; };
+		04059FF11872031A00BA6557 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = "../../oxygine-framework//oxygine/third_party/macosx/libraries/libpng.a"; sourceTree = "<group>"; };
+		04059FF4187203A600BA6557 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = "../../oxygine-framework//oxygine/third_party/ios/libraries/libjpeg.a"; sourceTree = "<group>"; };
+		04059FF5187203A600BA6557 /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng.a; path = "../../oxygine-framework//oxygine/third_party/ios/libraries/libpng.a"; sourceTree = "<group>"; };
+		049B572E1871FBE900EF3C66 /* tereZ_macosx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tereZ_macosx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049B57311871FBE900EF3C66 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		049B57341871FBE900EF3C66 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		049B57351871FBE900EF3C66 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		049B57361871FBE900EF3C66 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		049B57391871FBE900EF3C66 /* demo_macosx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tereZ_macosx-Info.plist"; sourceTree = "<group>"; };
+		049B57391871FBE900EF3C66 /* tereZ_macosx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tereZ_macosx-Info.plist"; sourceTree = "<group>"; };
 		049B57491871FBE900EF3C66 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = tereZ/Images.xcassets; sourceTree = "<group>"; };
 		049B57501871FBE900EF3C66 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C6D07EF7B77E90D3593AD699 /* ../src/example.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = example.cpp; path = ../src/example.cpp; sourceTree = "<group>"; };
-		7067CBBE80C46D1FB6DFBDB0 /* ../src/main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
-		C98FA36A1009AECAC22AE386 /* ../src/example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = example.h; path = ../src/example.h; sourceTree = "<group>"; };
-		8589EAFF309CAD68386D070C /* ../data/fonts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = fonts; path = ../data/fonts; sourceTree = "<group>"; };
-		84016E51C6B36D6F3C9F0AC9 /* ../data/images */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = images; path = ../data/images; sourceTree = "<group>"; };
-		BAA397F43A1D2C44A3C2728B /* ../data/res.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wtf; name = res.xml; path = ../data/res.xml; sourceTree = "<group>"; };
-
-		04A57D761871FFEB0068B1E5 /* oxygine_macosx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = oxygine_macosx.xcodeproj; path = ../../oxygine-framework//oxygine/SDL/macosx/oxygine_macosx/oxygine_macosx.xcodeproj; sourceTree = "<group>"; };
-		04A57D7E1872012A0068B1E5 /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = ../..//SDL/Xcode/SDL/SDL.xcodeproj; sourceTree = "<group>"; };
+		04A57D761871FFEB0068B1E5 /* oxygine_macosx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = oxygine_macosx.xcodeproj; path = "../../oxygine-framework//oxygine/SDL/macosx/oxygine_macosx/oxygine_macosx.xcodeproj"; sourceTree = "<group>"; };
+		04A57D7E1872012A0068B1E5 /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../..//SDL/Xcode/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
+		12C7B8791CA570B0009D904B /* oxygine-sound.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "oxygine-sound.xcodeproj"; path = "../../oxygine-sound/proj.macosx/oxygine-sound.xcodeproj"; sourceTree = "<group>"; };
+		12C7B8861CA57697009D904B /* background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.ogg; sourceTree = "<group>"; };
+		12C7B8871CA57697009D904B /* voice.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = voice.ogg; sourceTree = "<group>"; };
+		12C7B8891CA576CD009D904B /* app.icf */ = {isa = PBXFileReference; lastKnownFileType = text; path = app.icf; sourceTree = "<group>"; };
+		12C7B88A1CA576CD009D904B /* development.icf */ = {isa = PBXFileReference; lastKnownFileType = text; path = development.icf; sourceTree = "<group>"; };
+		12C7B88C1CA576CD009D904B /* main.fnt */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.fnt; sourceTree = "<group>"; };
+		12C7B88D1CA576CD009D904B /* main_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_0.png; sourceTree = "<group>"; };
+		12C7B8901CA576CD009D904B /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		12C7B8911CA576CD009D904B /* home_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_a.png; sourceTree = "<group>"; };
+		12C7B8921CA576CD009D904B /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main.png; sourceTree = "<group>"; };
+		12C7B8931CA576CD009D904B /* main_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_a.png; sourceTree = "<group>"; };
+		12C7B8941CA576CD009D904B /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		12C7B8951CA576CD009D904B /* pause_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_a.png; sourceTree = "<group>"; };
+		12C7B8961CA576CD009D904B /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		12C7B8971CA576CD009D904B /* play_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_a.png; sourceTree = "<group>"; };
+		12C7B8981CA576CD009D904B /* retry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retry.png; sourceTree = "<group>"; };
+		12C7B8991CA576CD009D904B /* retry_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retry_a.png; sourceTree = "<group>"; };
+		12C7B89A1CA576CD009D904B /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		12C7B89B1CA576CD009D904B /* settings_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_a.png; sourceTree = "<group>"; };
+		12C7B89C1CA576CD009D904B /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
+		12C7B89D1CA576CD009D904B /* speaker_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker_a.png; sourceTree = "<group>"; };
+		12C7B89E1CA576CD009D904B /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		12C7B89F1CA576CD009D904B /* star_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_a.png; sourceTree = "<group>"; };
+		12C7B8A01CA576CD009D904B /* door_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door_close.png; sourceTree = "<group>"; };
+		12C7B8A11CA576CD009D904B /* door_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door_open.png; sourceTree = "<group>"; };
+		12C7B8A21CA576CD009D904B /* floor_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor_tile.png; sourceTree = "<group>"; };
+		12C7B8A31CA576CD009D904B /* office.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = office.png; sourceTree = "<group>"; };
+		12C7B8A41CA576CD009D904B /* waiting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waiting.png; sourceTree = "<group>"; };
+		12C7B8A51CA576CD009D904B /* walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walking.png; sourceTree = "<group>"; };
+		12C7B8A61CA576CD009D904B /* libcurl.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = libcurl.dll; sourceTree = "<group>"; };
+		12C7B8A71CA576CD009D904B /* OpenAL32.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = OpenAL32.dll; sourceTree = "<group>"; };
+		12C7B8A81CA576CD009D904B /* pthreadVCE2.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = pthreadVCE2.dll; sourceTree = "<group>"; };
+		12C7B8A91CA576CD009D904B /* SDL2.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = SDL2.dll; sourceTree = "<group>"; };
+		12C7B8AB1CA576CD009D904B /* background.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.ogg; sourceTree = "<group>"; };
+		12C7B8AC1CA576CD009D904B /* voice.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = voice.ogg; sourceTree = "<group>"; };
+		12C7B8AE1CA576CD009D904B /* ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ui.xml; sourceTree = "<group>"; };
+		12C7B8AF1CA576CD009D904B /* zlib.dll */ = {isa = PBXFileReference; lastKnownFileType = file; path = zlib.dll; sourceTree = "<group>"; };
+		12C7B8BD1CA57C6F009D904B /* EndScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EndScene.cpp; sourceTree = "<group>"; };
+		12C7B8BE1CA57C6F009D904B /* EndScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EndScene.h; sourceTree = "<group>"; };
+		12C7B8BF1CA57C6F009D904B /* example.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example.cpp; sourceTree = "<group>"; };
+		12C7B8C01CA57C6F009D904B /* example.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = example.h; sourceTree = "<group>"; };
+		12C7B8C11CA57C6F009D904B /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		12C7B8C21CA57C6F009D904B /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		12C7B8C31CA57C6F009D904B /* GameScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		12C7B8C41CA57C6F009D904B /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		12C7B8C51CA57C6F009D904B /* GameSound.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameSound.cpp; sourceTree = "<group>"; };
+		12C7B8C61CA57C6F009D904B /* GameSound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameSound.h; sourceTree = "<group>"; };
+		12C7B8C71CA57C6F009D904B /* LevelRes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelRes.cpp; sourceTree = "<group>"; };
+		12C7B8C81CA57C6F009D904B /* LevelRes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelRes.h; sourceTree = "<group>"; };
+		12C7B8C91CA57C6F009D904B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		12C7B8CA1CA57C6F009D904B /* MainMenuScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
+		12C7B8CB1CA57C6F009D904B /* MainMenuScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
+		12C7B8CC1CA57C6F009D904B /* MyButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyButton.cpp; sourceTree = "<group>"; };
+		12C7B8CD1CA57C6F009D904B /* MyButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
+		12C7B8CE1CA57C6F009D904B /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		12C7B8CF1CA57C6F009D904B /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		12C7B8D01CA57C6F009D904B /* res.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = res.cpp; sourceTree = "<group>"; };
+		12C7B8D11CA57C6F009D904B /* res.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = res.h; sourceTree = "<group>"; };
+		12C7B8D21CA57C6F009D904B /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		12C7B8D31CA57C6F009D904B /* Scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		12C7B8D41CA57C6F009D904B /* Trap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Trap.cpp; sourceTree = "<group>"; };
+		12C7B8D51CA57C6F009D904B /* Trap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trap.h; sourceTree = "<group>"; };
+		12C7B8E71CA57D58009D904B /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		12C7B8F31CA57ECC009D904B /* ui.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ui.xml; sourceTree = "<group>"; };
+		12C7B8F41CA57EEF009D904B /* xmls */ = {isa = PBXFileReference; lastKnownFileType = folder; name = xmls; path = ../data/xmls; sourceTree = "<group>"; };
+		12C7B8F61CA57EFC009D904B /* sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sounds; path = ../data/sounds; sourceTree = "<group>"; };
+		7067CBBE80C46D1FB6DFBDB0 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
+		84016E51C6B36D6F3C9F0AC9 /* images */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = images; path = ../data/images; sourceTree = "<group>"; };
+		8589EAFF309CAD68386D070C /* fonts */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = fonts; path = ../data/fonts; sourceTree = "<group>"; };
+		BAA397F43A1D2C44A3C2728B /* res.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wtf; name = res.xml; path = ../data/res.xml; sourceTree = "<group>"; };
+		C6D07EF7B77E90D3593AD699 /* example.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = example.cpp; path = ../src/example.cpp; sourceTree = "<group>"; };
+		C98FA36A1009AECAC22AE386 /* example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = example.h; path = ../src/example.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +198,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12C7B8E81CA57D58009D904B /* OpenAL.framework in Frameworks */,
 				0405A00018720D2200BA6557 /* libjpeg.a in Frameworks */,
 				0405A00118720D2200BA6557 /* libpng.a in Frameworks */,
 				04059FEF187202AC00BA6557 /* OpenGL.framework in Frameworks */,
 				04059FED187202A200BA6557 /* libz.dylib in Frameworks */,
 				04059FEB1872027B00BA6557 /* liboxygine_macosx.a in Frameworks */,
+				12C7B8821CA5715A009D904B /* liboxygine-sound.a in Frameworks */,
 				04059FEA1872027500BA6557 /* SDL2.framework in Frameworks */,
 				049B57321871FBE900EF3C66 /* Cocoa.framework in Frameworks */,
 			);
@@ -131,6 +224,12 @@
 		049B57251871FBE900EF3C66 = {
 			isa = PBXGroup;
 			children = (
+				12C7B8F61CA57EFC009D904B /* sounds */,
+				12C7B8F41CA57EEF009D904B /* xmls */,
+				12C7B8F21CA57ECC009D904B /* xmls */,
+				12C7B8BC1CA57C6F009D904B /* src */,
+				12C7B8881CA576CD009D904B /* data */,
+				12C7B8851CA57697009D904B /* sounds */,
 				049B57491871FBE900EF3C66 /* Images.xcassets */,
 				049B57381871FBE900EF3C66 /* Supporting Files */,
 				04A57D391871FF8B0068B1E5 /* src */,
@@ -152,6 +251,8 @@
 		049B57301871FBE900EF3C66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12C7B8E71CA57D58009D904B /* OpenAL.framework */,
+				12C7B8791CA570B0009D904B /* oxygine-sound.xcodeproj */,
 				04059FF4187203A600BA6557 /* libjpeg.a */,
 				04059FF5187203A600BA6557 /* libpng.a */,
 				04059FF01872031A00BA6557 /* libjpeg.a */,
@@ -175,20 +276,12 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		049B57371871FBE900EF3C66 /* demo */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = demo;
-			sourceTree = "<group>";
-		};
 		049B57381871FBE900EF3C66 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8589EAFF309CAD68386D070C /* fonts */, 
-				84016E51C6B36D6F3C9F0AC9 /* images */, 
-				BAA397F43A1D2C44A3C2728B /* res.xml */, 
-
+				8589EAFF309CAD68386D070C /* fonts */,
+				84016E51C6B36D6F3C9F0AC9 /* images */,
+				BAA397F43A1D2C44A3C2728B /* res.xml */,
 				049B57391871FBE900EF3C66 /* tereZ_macosx-Info.plist */,
 			);
 			name = "Supporting Files";
@@ -197,10 +290,9 @@
 		04A57D391871FF8B0068B1E5 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				C6D07EF7B77E90D3593AD699 /* example.cpp */, 
-				7067CBBE80C46D1FB6DFBDB0 /* main.cpp */, 
-				C98FA36A1009AECAC22AE386 /* example.h */, 
-
+				C6D07EF7B77E90D3593AD699 /* example.cpp */,
+				7067CBBE80C46D1FB6DFBDB0 /* main.cpp */,
+				C98FA36A1009AECAC22AE386 /* example.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -214,6 +306,147 @@
 				04A57D8C1872012D0068B1E5 /* Standard DMG */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		12C7B87A1CA570B0009D904B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B87E1CA570B0009D904B /* liboxygine-sound.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12C7B8851CA57697009D904B /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B8861CA57697009D904B /* background.ogg */,
+				12C7B8871CA57697009D904B /* voice.ogg */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
+		12C7B8881CA576CD009D904B /* data */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B8891CA576CD009D904B /* app.icf */,
+				12C7B88A1CA576CD009D904B /* development.icf */,
+				12C7B88B1CA576CD009D904B /* fonts */,
+				12C7B88E1CA576CD009D904B /* images */,
+				12C7B8A61CA576CD009D904B /* libcurl.dll */,
+				12C7B8A71CA576CD009D904B /* OpenAL32.dll */,
+				12C7B8A81CA576CD009D904B /* pthreadVCE2.dll */,
+				12C7B8A91CA576CD009D904B /* SDL2.dll */,
+				12C7B8AA1CA576CD009D904B /* sounds */,
+				12C7B8AD1CA576CD009D904B /* xmls */,
+				12C7B8AF1CA576CD009D904B /* zlib.dll */,
+			);
+			name = data;
+			path = ../data;
+			sourceTree = "<group>";
+		};
+		12C7B88B1CA576CD009D904B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B88C1CA576CD009D904B /* main.fnt */,
+				12C7B88D1CA576CD009D904B /* main_0.png */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		12C7B88E1CA576CD009D904B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B88F1CA576CD009D904B /* buttons */,
+				12C7B8A01CA576CD009D904B /* door_close.png */,
+				12C7B8A11CA576CD009D904B /* door_open.png */,
+				12C7B8A21CA576CD009D904B /* floor_tile.png */,
+				12C7B8A31CA576CD009D904B /* office.png */,
+				12C7B8A41CA576CD009D904B /* waiting.png */,
+				12C7B8A51CA576CD009D904B /* walking.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		12C7B88F1CA576CD009D904B /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B8901CA576CD009D904B /* home.png */,
+				12C7B8911CA576CD009D904B /* home_a.png */,
+				12C7B8921CA576CD009D904B /* main.png */,
+				12C7B8931CA576CD009D904B /* main_a.png */,
+				12C7B8941CA576CD009D904B /* pause.png */,
+				12C7B8951CA576CD009D904B /* pause_a.png */,
+				12C7B8961CA576CD009D904B /* play.png */,
+				12C7B8971CA576CD009D904B /* play_a.png */,
+				12C7B8981CA576CD009D904B /* retry.png */,
+				12C7B8991CA576CD009D904B /* retry_a.png */,
+				12C7B89A1CA576CD009D904B /* settings.png */,
+				12C7B89B1CA576CD009D904B /* settings_a.png */,
+				12C7B89C1CA576CD009D904B /* speaker.png */,
+				12C7B89D1CA576CD009D904B /* speaker_a.png */,
+				12C7B89E1CA576CD009D904B /* star.png */,
+				12C7B89F1CA576CD009D904B /* star_a.png */,
+			);
+			path = buttons;
+			sourceTree = "<group>";
+		};
+		12C7B8AA1CA576CD009D904B /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B8AB1CA576CD009D904B /* background.ogg */,
+				12C7B8AC1CA576CD009D904B /* voice.ogg */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
+		12C7B8AD1CA576CD009D904B /* xmls */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B8AE1CA576CD009D904B /* ui.xml */,
+			);
+			path = xmls;
+			sourceTree = "<group>";
+		};
+		12C7B8BC1CA57C6F009D904B /* src */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B8BD1CA57C6F009D904B /* EndScene.cpp */,
+				12C7B8BE1CA57C6F009D904B /* EndScene.h */,
+				12C7B8BF1CA57C6F009D904B /* example.cpp */,
+				12C7B8C01CA57C6F009D904B /* example.h */,
+				12C7B8C11CA57C6F009D904B /* Game.cpp */,
+				12C7B8C21CA57C6F009D904B /* Game.h */,
+				12C7B8C31CA57C6F009D904B /* GameScene.cpp */,
+				12C7B8C41CA57C6F009D904B /* GameScene.h */,
+				12C7B8C51CA57C6F009D904B /* GameSound.cpp */,
+				12C7B8C61CA57C6F009D904B /* GameSound.h */,
+				12C7B8C71CA57C6F009D904B /* LevelRes.cpp */,
+				12C7B8C81CA57C6F009D904B /* LevelRes.h */,
+				12C7B8C91CA57C6F009D904B /* main.cpp */,
+				12C7B8CA1CA57C6F009D904B /* MainMenuScene.cpp */,
+				12C7B8CB1CA57C6F009D904B /* MainMenuScene.h */,
+				12C7B8CC1CA57C6F009D904B /* MyButton.cpp */,
+				12C7B8CD1CA57C6F009D904B /* MyButton.h */,
+				12C7B8CE1CA57C6F009D904B /* Player.cpp */,
+				12C7B8CF1CA57C6F009D904B /* Player.h */,
+				12C7B8D01CA57C6F009D904B /* res.cpp */,
+				12C7B8D11CA57C6F009D904B /* res.h */,
+				12C7B8D21CA57C6F009D904B /* Scene.cpp */,
+				12C7B8D31CA57C6F009D904B /* Scene.h */,
+				12C7B8D41CA57C6F009D904B /* Trap.cpp */,
+				12C7B8D51CA57C6F009D904B /* Trap.h */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		12C7B8F21CA57ECC009D904B /* xmls */ = {
+			isa = PBXGroup;
+			children = (
+				12C7B8F31CA57ECC009D904B /* ui.xml */,
+			);
+			name = xmls;
+			path = ../data/xmls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +463,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				12C7B8841CA572BB009D904B /* PBXTargetDependency */,
 				04059FE91872027200BA6557 /* PBXTargetDependency */,
 				04A57D8F187201EF0068B1E5 /* PBXTargetDependency */,
 			);
@@ -259,6 +493,10 @@
 			productRefGroup = 049B572F1871FBE900EF3C66 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 12C7B87A1CA570B0009D904B /* Products */;
+					ProjectRef = 12C7B8791CA570B0009D904B /* oxygine-sound.xcodeproj */;
+				},
 				{
 					ProductGroup = 04059FE01872026200BA6557 /* Products */;
 					ProjectRef = 04A57D761871FFEB0068B1E5 /* oxygine_macosx.xcodeproj */;
@@ -311,6 +549,13 @@
 			remoteRef = 04A57D8B1872012D0068B1E5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		12C7B87E1CA570B0009D904B /* liboxygine-sound.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "liboxygine-sound.a";
+			remoteRef = 12C7B87D1CA570B0009D904B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -318,10 +563,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE0755281220E087835B9255 /* fonts */, 
-				415ED7E70CAD19461922995D /* images */, 
-				056A4AD683CBF721245568A8 /* res.xml */, 
-
+				12C7B8F51CA57EEF009D904B /* xmls in Resources */,
+				12C7B8F71CA57EFC009D904B /* sounds in Resources */,
+				AE0755281220E087835B9255 /* fonts in Resources */,
+				415ED7E70CAD19461922995D /* images in Resources */,
 				049B574A1871FBE900EF3C66 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,9 +578,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4283FEFC63F0CD0E873A0000 /* example.cpp */, 
-				FC1F7CD5BB2E35CBF0F19C55 /* main.cpp */, 
-
+				12C7B8E01CA57CF8009D904B /* GameSound.cpp in Sources */,
+				12C7B8DF1CA57CEF009D904B /* EndScene.cpp in Sources */,
+				12C7B8DE1CA57CE6009D904B /* Player.cpp in Sources */,
+				12C7B8DD1CA57CDB009D904B /* Trap.cpp in Sources */,
+				12C7B8DC1CA57CCF009D904B /* Game.cpp in Sources */,
+				12C7B8DB1CA57CC4009D904B /* GameScene.cpp in Sources */,
+				12C7B8DA1CA57CB9009D904B /* MyButton.cpp in Sources */,
+				12C7B8D91CA57CAC009D904B /* LevelRes.cpp in Sources */,
+				12C7B8D81CA57C9E009D904B /* Scene.cpp in Sources */,
+				12C7B8D71CA57C8E009D904B /* res.cpp in Sources */,
+				12C7B8D61CA57C7C009D904B /* MainMenuScene.cpp in Sources */,
+				4283FEFC63F0CD0E873A0000 /* example.cpp in Sources */,
+				FC1F7CD5BB2E35CBF0F19C55 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +606,11 @@
 			isa = PBXTargetDependency;
 			name = Framework;
 			targetProxy = 04A57D8E187201EF0068B1E5 /* PBXContainerItemProxy */;
+		};
+		12C7B8841CA572BB009D904B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "oxygine-sound";
+			targetProxy = 12C7B8831CA572BB009D904B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -390,7 +650,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "../../oxygine-framework//oxygine/src ../..//SDL/include";
-				VALID_ARCHS = "x86_64";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -424,7 +684,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				USER_HEADER_SEARCH_PATHS = "../../oxygine-framework//oxygine/src ../..//SDL/include";
-				VALID_ARCHS = "x86_64";
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
@@ -442,6 +702,7 @@
 					"../../oxygine-framework//oxygine/third_party/ios/libraries",
 				);
 				PRODUCT_NAME = tereZ_macosx;
+				USER_HEADER_SEARCH_PATHS = "../../oxygine-framework//oxygine/src ../..//SDL/include ../../oxygine-sound//src";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -460,6 +721,7 @@
 					"../../oxygine-framework//oxygine/third_party/ios/libraries",
 				);
 				PRODUCT_NAME = tereZ_macosx;
+				USER_HEADER_SEARCH_PATHS = "../../oxygine-framework//oxygine/src ../..//SDL/include ../../oxygine-sound//src";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
