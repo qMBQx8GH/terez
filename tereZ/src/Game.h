@@ -1,5 +1,6 @@
 #pragma once
 #include "oxygine-framework.h"
+#include "Box2D/Box2D.h"
 #include "Player.h"
 #include "Trap.h"
 using namespace oxygine;
@@ -13,6 +14,8 @@ public:
     ~Game();
 
     void init();
+	float _scale = 1.0f;
+	b2World* _world;
 
 protected:
     friend class Trap;

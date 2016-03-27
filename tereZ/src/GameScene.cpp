@@ -47,6 +47,13 @@ GameScene::GameScene()
 
 	_view->addEventListener(123, CLOSURE(this, &GameScene::onEvent));
 	_view->addEventListener(124, CLOSURE(this, &GameScene::onEvent));
+#if _DEBUG
+	_debugDraw = new Box2DDraw;
+	_debugDraw->SetFlags(b2Draw::e_shapeBit | b2Draw::e_jointBit | b2Draw::e_pairBit | b2Draw::e_centerOfMassBit);
+	_debugDraw->attachTo(this->_view);
+	_debugDraw->setWorld(this->_game->_scale * this->_game->getScaleX(), this->_game->_world);
+	_debugDraw->setPriority(1);
+#endif
 }
 
 void GameScene::onEvent(Event* ev)

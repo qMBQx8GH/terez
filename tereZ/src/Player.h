@@ -1,19 +1,20 @@
 #pragma once
 #include "oxygine-framework.h"
+#include "Box2D/Box2D.h"
+
 using namespace oxygine;
 
 DECLARE_SMART(Player, spPlayer);
-class Player : public Actor
+class Player : public Sprite
 {
 public:
-	Player();
+	Player(b2World* world, const Vector2& pos, float scale);
 	void update(const UpdateState &us);
-	void onDead(Event *a_event);
-	void die(float door_x, float door_width, float depth);
+	void die();
 	void win();
 
 protected:
-	spSprite sprite;
+
 	int currentFrame;
 	float frameTime;
 	ResAnim *animation;

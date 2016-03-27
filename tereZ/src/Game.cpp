@@ -27,12 +27,15 @@ void Game::init()
 		_office->attachTo(this);
 		break;
 	}
-	
+
 	float hScale = this->getWidth() / _office->getWidth();
 	this->setScaleX(hScale);
 	float vScale = this->getHeight() / _office->getHeight();
 	this->setScaleY(vScale);
-	
+
+	this->_scale = level->getAttribute("scale").as_float();
+	this->_world = new b2World(b2Vec2(0.0f, 9.8f));
+
 	//create separate layer for elements virtual joystick and other UI in future
     _ui = new Actor;
     _ui->attachTo(this);
@@ -41,8 +44,11 @@ void Game::init()
 
 	for (pugi::xml_node t : level->getNode().children("player"))
 	{
-		_player = new Player();
-		_player->setPosition(Vector2(t.attribute("position-x").as_float(), t.attribute("position-y").as_float()));
+		_player = new Player(
+			_world,
+			Vector2(t.attribute("position-x").as_float(), t.attribute("position-y").as_float()),
+			_scale
+		);
 		_player->attachTo(this);
 		break;
 	}
@@ -51,28 +57,33 @@ void Game::init()
 	{
 		spSprite tile = initActor(new Sprite,
 			arg_resAnim = res::ui.getResAnim(t.attribute("image").as_string()),
+			arg_anchor = Vector2(0.5f, 0.5f),
 			arg_position = Vector2(t.attribute("position-x").as_float(), t.attribute("position-y").as_float()),
 			arg_attachTo = this);
+
+		b2BodyDef groundBodyDef;
+		groundBodyDef.position = b2Vec2(tile->getX() / _scale, tile->getY() / _scale);
+
+		b2Body* groundBody = _world->CreateBody(&groundBodyDef);
+
+		b2PolygonShape groundBox;
+		groundBox.SetAsBox(tile->getWidth() / 2.0f / _scale, tile->getHeight() / 2.0f / _scale);
+		groundBody->CreateFixture(&groundBox, 0.0f);
 	}
-
-	spSprite floor_left = initActor(new Sprite,
-		arg_resAnim = res::ui.getResAnim("floor_tile"),
-		arg_position = Vector2(0.0f, _office->getHeight() / 2.0f),
-		arg_attachTo = this);
-
-	float floor_width = floor_left->getWidth();
-	float floor_height = floor_left->getHeight();
 
 	spTrap door;
 	for (pugi::xml_node t : level->getNode().children("trap"))
 	{
-		door = initActor(new Trap(
-				res::ui.getResAnim(t.attribute("sprite-open").as_string()),
-				res::ui.getResAnim(t.attribute("sprite-close").as_string())
-			),
-			arg_resAnim = res::ui.getResAnim(t.attribute("sprite-open").as_string()),
-			arg_position = Vector2(t.attribute("position-x").as_float(), t.attribute("position-y").as_float()),
-			arg_attachTo = this);
+		door = new Trap(
+			t.attribute("sprite-open").as_string(),
+			_world,
+			Vector2(t.attribute("position-x").as_float(), t.attribute("position-y").as_float()),
+			_scale,
+			res::ui.getResAnim(t.attribute("sprite-open").as_string()),
+			res::ui.getResAnim(t.attribute("sprite-close").as_string())
+			);
+		door->attachTo(this);
+
 		door->startTimer(
 			t.attribute("timer-offset").as_int(),
 			t.attribute("timer-interval").as_int(),
@@ -84,6 +95,31 @@ void Game::init()
 
 void Game::doUpdate(const UpdateState& us)
 {
+	_world->Step(us.dt / 1000.0f, 6, 2);
+	//update each body position on display
+	b2Body* body = _world->GetBodyList();
+	while (body)
+	{
+		Actor* actor = (Actor*)body->GetUserData();
+		b2Body* next = body->GetNext();
+		if (actor)
+		{
+			const b2Vec2& pos = body->GetPosition();
+			actor->setPosition(Vector2(pos.x * _scale, pos.y * _scale));
+			actor->setRotation(body->GetAngle());
+
+			//remove fallen bodies
+			if (actor->getY() > _office->getHeight() + 200)
+			{
+				body->SetUserData(0);
+				_world->DestroyBody(body);
+				_player->die();
+			}
+		}
+
+		body = next;
+	}
+
 	if (_player->getX() >= _office->getWidth())
 	{
 		_player->win();
@@ -98,7 +134,7 @@ void Game::doUpdate(const UpdateState& us)
 			&& _player->getX() < (trap->getX() + trap->getWidth())
 			)
 		{
-			_player->die(trap->getX(), trap->getWidth(), _office->getHeight());
+			//_player->die(trap->getX(), trap->getWidth(), _office->getHeight());
 			break;
 		}
 	}

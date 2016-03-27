@@ -9,16 +9,39 @@
 #include <sstream>
 #include "DebugActor.h"
 
-Player::Player(): isDead(false), isWalking(false), frameTime(0.0f), currentFrame(0)
+Player::Player(b2World* world, const Vector2& pos, float scale): isDead(false), isWalking(false), frameTime(0.0f), currentFrame(0)
 {
 	animation = res::ui.getResAnim("waiting");
+	this->setResAnim(animation);
+	this->setAnchor(0.5f, 0.5f);
+	this->setPosition(pos);
 
-	sprite = new Sprite;
-	sprite->setResAnim(animation);
-	sprite->attachTo(this);
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_dynamicBody;
+	bodyDef.position = b2Vec2(pos.x / scale, pos.y / scale);
 
-	this->setSize(sprite->getSize());
-	this->setAnchor(0.5f, 1.0f);
+	b2Body* body = world->CreateBody(&bodyDef);
+	body->SetFixedRotation(true);
+	//b2MassData md;
+	//md.mass = 10.0f;
+	//md.center = b2Vec2(this->getWidth() / scale, this->getHeight() / scale);
+	//log::messageln("%f %f", this->getWidth(), this->getHeight());
+	//body->SetMassData(&md);
+
+	this->setUserData(body);
+
+	//b2PolygonShape shape;
+	//shape.SetAsBox(this->getWidth() / 2.0f / scale, this->getHeight() / 2.0f / scale);
+	b2CircleShape shape;
+	shape.m_radius = getHeight() / 2.0f / scale;
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &shape;
+	fixtureDef.density = 1.0f;
+	fixtureDef.friction = 0.0f;
+
+	body->CreateFixture(&fixtureDef);
+	body->SetUserData(this);
 }
 
 void Player::update(const UpdateState &us)
@@ -51,11 +74,20 @@ void Player::update(const UpdateState &us)
 		}
 	}
 
-	if (isWalking && !isDead)
+	if (!isDead)
 	{
-		Vector2 pos = getPosition();
-		pos.x += animation->getAttribute("speed").as_float() * this->getScaleX();
-		setPosition(pos);
+		b2Body* body = (b2Body *)this->getUserData();
+		b2Vec2 vel = body->GetLinearVelocity();
+		//body->ApplyForce(b2Vec2(0.0f, 50.0f), body->GetPosition(), true);
+		if (isWalking)
+		{
+			vel.x = animation->getAttribute("speed").as_float() * this->getScaleX();
+		}
+		else
+		{
+			vel.x = 0;
+		}
+		body->SetLinearVelocity(vel);
 	}
 
 	float maxFrames = animation->getColumns();
@@ -76,26 +108,20 @@ void Player::update(const UpdateState &us)
 	//DebugActor::instance->addDebugString(buff.str().c_str());
 	if (currentFrame != newFrame && !isDead)
 	{
-		sprite->setAnimFrame(animation->getFrame(newFrame));
+		this->setAnimFrame(animation->getFrame(newFrame));
 		currentFrame = newFrame;
 	}
 }
 
-void Player::die(float door_x, float door_width, float depth)
+void Player::die()
 {
 	if (!this->isDead)
 	{
 		this->isDead = true;
-		spTween tween = this->addTween(Actor::TweenPosition(door_x + door_width / 2.0f, depth + this->getHeight()), 1000);
-		tween->setDoneCallback(CLOSURE(this, &Player::onDead));
+		int type = 123;
+		Event event(type);
+		GameScene::instance->getView()->dispatchEvent(&event);
 	}
-}
-
-void Player::onDead(Event *a_event)
-{
-	int type = 123;
-	Event event(type);
-	GameScene::instance->getView()->dispatchEvent(&event);
 }
 
 void Player::win()
