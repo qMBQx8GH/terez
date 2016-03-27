@@ -1,10 +1,11 @@
 regexp:\.obj$
 regexp:\.tlog$
-regexp:win32/Debug_v140_xp/
+regexp:win32/(Debug|Release)_v140_xp/
 regexp:\.cmake/build/
 regexp:\.pyc$
 regexp:\.suo$
 regexp:\.sdf$
+regexp:\.opendb
 regexp:\.DS_Store$
 regexp:\.xcscheme$
 glob:*.xcodeproj/*.pbxuser
