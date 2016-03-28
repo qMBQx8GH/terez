@@ -9,13 +9,18 @@ link_directories(${OXYGINE_LIBRARY_DIRS})
 add_subdirectory(../../oxygine-sound/ oxygine-sound)
 include_directories(${OXYGINESOUND_INCLUDE_DIRS})
 
+add_subdirectory(../../box2d/ box2d)
+include_directories(../../box2d)
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+file(GLOB_RECURSE box2d_SRC ../../box2d/*.cpp ../../box2d/*.h)
 
 file(GLOB all_SRC
     "../src/*.h"
     "../src/*.cpp"
 )
-add_executable(tereZ ${all_SRC})
+add_executable(tereZ ${box2d_SRC} ${all_SRC})
 
 if (WIN32) #disable console mode for VC++
 	set_target_properties(tereZ PROPERTIES WIN32_EXECUTABLE TRUE)
