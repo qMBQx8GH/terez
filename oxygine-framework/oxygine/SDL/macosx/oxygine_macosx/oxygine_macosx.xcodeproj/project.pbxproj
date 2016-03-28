@@ -192,6 +192,7 @@
 		049B57241871F21E00EF3C66 /* winnie_alloc_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 049B56641871F21E00EF3C66 /* winnie_alloc_config.h */; };
 		04B3A71F18A6594D004C67E3 /* InputText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04B3A71D18A6594D004C67E3 /* InputText.cpp */; };
 		04B3A72018A6594D004C67E3 /* InputText.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B3A71E18A6594D004C67E3 /* InputText.h */; };
+		121361F81CA90FBE00D81F6E /* box2d in Sources */ = {isa = PBXBuildFile; fileRef = 121361F71CA90FBE00D81F6E /* box2d */; };
 		92214D5E19F149BC00A4459A /* Polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92214D5C19F149BC00A4459A /* Polygon.cpp */; };
 		92214D5F19F149BC00A4459A /* Polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 92214D5D19F149BC00A4459A /* Polygon.h */; };
 		923663581A47561500EB65B3 /* Serializable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 923663511A47561500EB65B3 /* Serializable.cpp */; };
@@ -433,6 +434,7 @@
 		049B56641871F21E00EF3C66 /* winnie_alloc_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = winnie_alloc_config.h; sourceTree = "<group>"; };
 		04B3A71D18A6594D004C67E3 /* InputText.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = InputText.cpp; path = ../../../src/InputText.cpp; sourceTree = "<group>"; };
 		04B3A71E18A6594D004C67E3 /* InputText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InputText.h; path = ../../../src/InputText.h; sourceTree = "<group>"; };
+		121361F71CA90FBE00D81F6E /* box2d */ = {isa = PBXFileReference; lastKnownFileType = folder; name = box2d; path = ../../../../../box2d; sourceTree = "<group>"; };
 		92214D5C19F149BC00A4459A /* Polygon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Polygon.cpp; path = ../../../src/Polygon.cpp; sourceTree = "<group>"; };
 		92214D5D19F149BC00A4459A /* Polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Polygon.h; path = ../../../src/Polygon.h; sourceTree = "<group>"; };
 		923663511A47561500EB65B3 /* Serializable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Serializable.cpp; path = ../../../src/Serializable.cpp; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 		049B52B21871EDE900EF3C66 = {
 			isa = PBXGroup;
 			children = (
+				121361F71CA90FBE00D81F6E /* box2d */,
 				92AA951D1A5CB260000B50A0 /* AppKit.framework */,
 				049B55901871F21000EF3C66 /* src */,
 				049B52BC1871EDE900EF3C66 /* Products */,
@@ -1061,6 +1064,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				121361F81CA90FBE00D81F6E /* box2d in Sources */,
 				049B56CF1871F21E00EF3C66 /* Font.cpp in Sources */,
 				049B56E51871F21E00EF3C66 /* unzip.c in Sources */,
 				049B56EB1871F21E00EF3C66 /* PointerState.cpp in Sources */,
@@ -1260,6 +1264,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SDL)/include/ ../../../src $(THIRD_PARTY)/libpng $(THIRD_PARTY)/libjpeg ../../box2d";
 				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
@@ -1270,6 +1275,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SDL)/include/ ../../../src $(THIRD_PARTY)/libpng $(THIRD_PARTY)/libjpeg ../../box2d";
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
